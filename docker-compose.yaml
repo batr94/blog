@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  node:
+    image: "node:23"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+    user: "${UID}:${GID}"
+    command: ["npm", "run", "dev"]
+    working_dir: /app
