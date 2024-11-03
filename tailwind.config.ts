@@ -7,6 +7,10 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      base: ['var(--font-open-sans)'],
+      title: ['var(--font-merriweather)']
+    },
     extend: {
       colors: {
         background: "var(--background)",

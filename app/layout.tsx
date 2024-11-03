@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Open_Sans, Merriweather } from "next/font/google";
 import "./globals.css";
+import Header from '@/src/components/Header';
+import Footer from '@/src/components/Footer';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const openSans = Open_Sans({
+  subsets: ['cyrillic', 'latin'],
+  variable: '--font-open-sans'
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const merriweather = Merriweather({
+  subsets: ['cyrillic', 'latin'],
+  variable: '--font-merriweather',
+  weight: ['300', '400', '700', '900']
 });
 
 export const metadata: Metadata = {
@@ -24,11 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${openSans.variable} ${merriweather.variable}`}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
